@@ -1,11 +1,11 @@
-import {PrismaClient} from '@prisma/client'
-import {getAllUsers} from "./src/functions/users/read";
-import {createUser} from "./db";
+import {PrismaClient} from '@prisma/client';
+import {getAllUsers} from './src/functions/users/read';
+import {createUser} from './db';
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
 
 async function main() {
-    /*const createUserWithPosts = async () => {
+  /* const createUserWithPosts = async () => {
         const user = await prisma.user.create({
             data: {
                 name: 'John A',
@@ -19,21 +19,21 @@ async function main() {
             }
         })
         console.log(user)
-    }*/
+    } */
 
-    // await insertUser()
-    // await createUserWithPosts()
-    // await createUser("Johnny J", "johnny@email.com")
-    await getAllUsers();
-    // await getAllUsers()
+  // await insertUser()
+  // await createUserWithPosts()
+  // await createUser("Johnny J", "johnny@email.com")
+  await getAllUsers();
+  // await getAllUsers()
 }
 
 main()
-    .then(async () => {
-        await prisma.$disconnect()
-    })
-    .catch(async (e) => {
-        console.error(e)
-        await prisma.$disconnect()
-        process.exit(1)
-    })
+  .then(async () => {
+    await prisma.$disconnect();
+  })
+  .catch(async e => {
+    console.error(e);
+    await prisma.$disconnect();
+    process.exit(1);
+  });
